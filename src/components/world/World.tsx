@@ -1,26 +1,39 @@
 import * as React from "react";
 
-export const World = () => {
+interface worldProps {
+    data: {
+        points:Array<any>,
+    }
+}
+
+export const World = ({data}: worldProps) => {
     return (
         <g>
-            <Continent/>
+            <Continent points={data.points}/>
             <Zone/>
         </g>
 
     )
 };
 
-export const Continent = () => {
-    return (
-        <g>
-            <polyline points="20,90 70,65 120,67 170,73 220,57 270,58 320,40 370,35 420,30 470,47 520,76 570,85 620,112 670,134, 690,178"
-            stroke="black" stroke-width="3" fill="none" />
-            <polyline points="690,178 670,329, 620,450 570,578 520,478 470,512 420,578 370,524 320,510 270,478 220,332 170,274 120,294 70,272 20,90"
-            stroke="black" stroke-width="3" fill="none" />
-        </g>
-    );
+// continents
+interface continentProps {
+    points:Array<any>
+}
+
+const createContinent = (points:string) => {
+    return <polyline points={points} stroke="black" stroke-width="3" fill="none"/>;
 };
 
+export const Continent = ({points}:continentProps) => {
+    return (
+        <g>
+            {points.map(points => createContinent(points)) }
+        </g>
+    )
+};
+
+// zone
 export const Zone = () => {
     return (
         <g>
