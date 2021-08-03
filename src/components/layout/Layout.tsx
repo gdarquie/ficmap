@@ -1,5 +1,5 @@
 import * as React from "react";
-import { World} from '../world/World';
+import { CityProps, World} from '../world/World';
 
 interface Props {
     width: number,
@@ -8,7 +8,8 @@ interface Props {
     map: {
         world: {
             points: Array<string>,
-        }
+            cities: Array<CityProps>
+        },
     }
 }
 

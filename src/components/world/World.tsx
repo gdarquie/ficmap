@@ -3,14 +3,16 @@ import * as React from "react";
 interface worldProps {
     data: {
         points:Array<any>,
-    }
-}
+        cities:Array<CityProps>,
+    };
+};
 
 export const World = ({data}: worldProps) => {
     return (
         <g>
-            <Continent points={data.points}/>
+            <Continents points={data.points}/>
             <Zone/>
+            <Cities cities={data.cities}/>
         </g>
 
     )
@@ -25,7 +27,7 @@ const createContinent = (points:string) => {
     return <polyline points={points} stroke="black" stroke-width="3" fill="none"/>;
 };
 
-export const Continent = ({points}:continentProps) => {
+export const Continents = ({points}:continentProps) => {
     return (
         <g>
             {points.map(points => createContinent(points)) }
@@ -44,12 +46,36 @@ export const Zone = () => {
 
 export const Country = () => {
     // a polyne inside the continents
-}
+};
 
 export const River = () => {
     // a polyline in blue
+};
+
+
+export interface CityProps {
+    x:string,
+    y:string,
+    label:string,
+};
+
+export const City = ({x, y, label}:CityProps) => {
+    return (
+        <g>
+            <text x={x} y={parseInt(y)-5} fill="red">{label}</text>
+            <circle cx={x} cy={y} r="3" stroke="black" stroke-width="1" fill="none" />
+        </g>
+    );
 }
 
-export const City = () => {
-    // a circle with a name (text)
-}
+export interface CitiesProps {
+    cities: Array<CityProps>,
+};
+
+export const Cities = ({cities}:CitiesProps) => {
+    return (
+        <g>
+            {cities.map(city => City(city)) }
+        </g>
+    );
+};
