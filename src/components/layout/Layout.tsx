@@ -1,5 +1,6 @@
 import * as React from "react";
-import { CityProps, World} from '../world/World';
+import { World} from '../world/World';
+import { CityProps } from "../world/City";
 
 interface Props {
     width: number,
