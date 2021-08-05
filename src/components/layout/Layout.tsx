@@ -10,6 +10,9 @@ interface Props {
         world: {
             points: Array<string>,
             cities: Array<CityProps>
+            rivers: {
+                points: Array<string>
+            }
         },
     }
 }
