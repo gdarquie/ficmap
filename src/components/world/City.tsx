@@ -6,6 +6,9 @@ export interface CityProps {
     label:string,
 };
 
+export interface CitiesProps {
+    cities: Array<CityProps>,
+};
 
 export const City = ({x, y, label}:CityProps) => {
     return (
@@ -15,10 +18,6 @@ export const City = ({x, y, label}:CityProps) => {
         </g>
     );
 }
-
-export interface CitiesProps {
-    cities: Array<CityProps>,
-};
 
 export const Cities = ({cities}:CitiesProps) => {
     return (

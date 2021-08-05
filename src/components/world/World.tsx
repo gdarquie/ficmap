@@ -1,26 +1,27 @@
 import * as React from "react";
 import { Continents } from "./Continent";
 import { Cities, CityProps } from "./City";
-import { River } from "./River";
+import { Rivers } from "./River";
 
 interface worldProps {
     data: {
         points: Array<string>,
         cities: Array<CityProps>
-        rivers: {
-            points: Array<string>
-        }
+        rivers: [
+            {
+                points: Array<string>
+            }
+        ]
     },
 };
 
 export const World = ({data}: worldProps) => {
-    console.log(data.rivers.points);
     return (
         <g>
             <Continents points={data.points}/>
             <Zone/>
             <Cities cities={data.cities}/>
-            <River points={data.rivers.points} />
+            <Rivers rivers={data.rivers} />
         </g>
 
     )
