@@ -31,7 +31,7 @@ export const World = ({data}: worldProps) => {
 export const Zone = () => {
     return (
         <g>
-            <circle cx="160" cy="250" r="150" stroke="red" stroke-width="3" fill="none" />
+            <circle cx="160" cy="250" r="150" stroke="red" strokeWidth="3" fill="none" />
         </g>
     );
 }
