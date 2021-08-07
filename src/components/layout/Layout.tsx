@@ -23,7 +23,7 @@ export const SvgLayoutFromModule = ({width, height, map}:Props) => {
     return (
         <svg height={height} width={width}>
             <g>
-                <rect width={width-50} height={height-50} fill="none" strokeWidth="1" stroke="rgb(0,0,0)"></rect>
+                <rect width={width-25} height={height-50} fill="none" strokeWidth="1" stroke="rgb(0,0,0)"></rect>
                 <World data={map.world}/>
             </g>
         </svg>
