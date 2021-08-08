@@ -3,6 +3,7 @@ import { Continents } from "./Continent";
 import { Cities, CityProps } from "./City";
 import { Rivers } from "./River";
 import { Countries, CountryProps } from "./Country";
+import { ZoneProps, Zones } from "./Zone";
 
 interface worldProps {
     data: {
@@ -14,6 +15,7 @@ interface worldProps {
             }
         ],
         countries: Array<CountryProps>,
+        zones: Array<ZoneProps>,
     },
 };
 
@@ -21,7 +23,7 @@ export const World = ({data}: worldProps) => {
     return (
         <g>
             <Continents points={data.points}/>
-            <Zone/>
+            <Zones zones={data.zones} />
             <Cities cities={data.cities}/>
             <Rivers rivers={data.rivers} />
             <Countries countries={data.countries} />
@@ -29,13 +31,3 @@ export const World = ({data}: worldProps) => {
 
     )
 };
-
-// zone
-export const Zone = () => {
-    return (
-        <g>
-            <circle cx="160" cy="250" r="150" stroke="red" strokeWidth="3" fill="none" />
-        </g>
-    );
-}
-
