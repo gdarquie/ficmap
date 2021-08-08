@@ -2,6 +2,7 @@ import * as React from "react";
 import { Continents } from "./Continent";
 import { Cities, CityProps } from "./City";
 import { Rivers } from "./River";
+import { Countries, CountryProps } from "./Country";
 
 interface worldProps {
     data: {
@@ -11,7 +12,8 @@ interface worldProps {
             {
                 points: Array<string>
             }
-        ]
+        ],
+        countries: Array<CountryProps>,
     },
 };
 
@@ -22,6 +24,7 @@ export const World = ({data}: worldProps) => {
             <Zone/>
             <Cities cities={data.cities}/>
             <Rivers rivers={data.rivers} />
+            <Countries countries={data.countries} />
         </g>
 
     )
@@ -36,6 +39,3 @@ export const Zone = () => {
     );
 }
 
-export const Country = () => {
-    // a polyne inside the continents
-};

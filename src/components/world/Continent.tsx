@@ -15,7 +15,8 @@ const createContinent = (points:string) => {
                     <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
                 </filter>
             </defs>
-            <polyline points={points} stroke="black" strokeWidth="3" fill="none" filter="url(#f1)"/>
+            {/* <polyline points={points} stroke="black" strokeWidth="3" fill="none"/> */}
+            <path d={points} stroke="#000" strokeWidth="3" fill="none" filter="url(#f1)"/>
         </g>
     );
 };
