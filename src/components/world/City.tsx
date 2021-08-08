@@ -4,17 +4,23 @@ export interface CityProps {
     x:string,
     y:string,
     label:string,
+    type?:string,
+    link?: string,
 };
 
 export interface CitiesProps {
     cities: Array<CityProps>,
 };
 
-export const City = ({x, y, label}:CityProps, index:number) => {
+export const City = ({x, y, label, type = 'default', link='http://wiki.ficti.fr'}:CityProps, index:number) => {
+    const fillColor = (type == 'capital') ? 'red' :'black';
+
     return (
         <g key={'city-' + index}>
-            <text x={x} y={parseInt(y)-5} fill="red">{label}</text>
-            <circle cx={x} cy={y} r="3" stroke="black" strokeWidth="1" fill="none" />
+            <a target='_blank' href={link}>
+                <text x={x} y={parseInt(y)-5} fill={fillColor}>{label}</text>
+            </a>
+            <circle cx={x} cy={y} r="3" stroke={fillColor} strokeWidth="1" fill="none" />
         </g>
     );
 }
